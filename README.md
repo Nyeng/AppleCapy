@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Capybara
 
 [![Build Status](https://secure.travis-ci.org/jnicklas/capybara.png)](https://travis-ci.org/jnicklas/capybara)
@@ -966,3 +967,7 @@ bundle exec rake  # run the test suite
 See
 [CONTRIBUTING.md](https://github.com/jnicklas/capybara/blob/master/CONTRIBUTING.md)
 for how to send issues and pull requests.
+=======
+# AppleCapy
+testprosjekt for AppleCapy
+>>>>>>> 132924cee74942f86de302bdb99a36a3fa65d799
