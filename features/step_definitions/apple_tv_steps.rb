@@ -2,9 +2,12 @@ require_relative '../../library/apple_tv_base'
 #include Apple
 
 
-When(/^I want to test AppleTV$/) do
+Given(/^I want to test AppleTV$/) do
   @appletv = AppleTvBase.new('atv')
-  #visit '/'
+end
+
+Given(/^I want to test Super AppleTV$/) do
+  @superatv = AppleTvBase.new('super')
 end
 
 When(/^I look up xml startpages for Apple TV$/) do
@@ -38,4 +41,8 @@ end
 
 Then(/^the subpages should be available$/) do
 
+end
+
+And(/^I look up xml startpages for Super Apple TV$/) do
+  @superatv.verify_main_site
 end

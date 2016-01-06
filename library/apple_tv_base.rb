@@ -7,10 +7,9 @@ class AppleTvBase
 
   def initialize(medium)
     config = YAML.load_file("config/stage.yml")
-    environment = config["urls"]["apple_tv"]
 
-    puts "taken from config #{environment}"
     if medium.eql?'atv'
+      environment = config["urls"]["apple_tv"]
       @medium = medium
       Capybara.configure do |config|
         puts "Found it"
@@ -19,6 +18,14 @@ class AppleTvBase
         @base_url = environment
         #Capybara.javascript_driver = :poltergeist
       end
+    else
+      puts "You're now on super"
+      environment = config["urls"]["superatv"]
+      Capybara.configure do|config|
+        config.app_host = environment
+        @base_url = environment
+      end
+
     end
   end
 
