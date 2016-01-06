@@ -27,3 +27,15 @@ end
 When(/^I check out non\-buildable paths$/) do
   @appletv.check_non_buildable_paths
 end
+
+Then(/^all paths should be available$/) do
+
+end
+
+When(/^I lookup subpages from paths$/) do
+  @appletv.verify_pages_from_paths
+end
+
+Then(/^the subpages should be available$/) do
+
+end

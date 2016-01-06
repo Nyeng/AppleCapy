@@ -17,6 +17,12 @@ Feature: Visit ATV base URL and crawl site
     Scenario: Paths
       Given I want to test AppleTV
       When I check out non-buildable paths
+      Then all paths should be available
+
+     Scenario: Verify sub pages from paths
+       Given I want to test AppleTV
+       When I lookup subpages from paths
+       Then the subpages should be available
 
 
 

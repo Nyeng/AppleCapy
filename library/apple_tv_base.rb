@@ -126,5 +126,62 @@ class AppleTvBase
     end
   end
 
+  def verify_pages_from_paths
+    #TODO remove hardcoded progIDs
+    paths = get_paths
+    paths.each do|elem,value|
+      if elem.eql?'player'
+        puts "Test player: player()"
+        if @medium.eql?'super'
+          puts "test medium in super: Yo dawg"
+          tv_channel = 'nrksuper'
+          test_path_endpoint(tv_channel,value)
+        end
+      elsif elem.eql?'playerBySeries'
+        puts "Test playerBySeries"
+        if @medium.eql?'super'
+          series = 'jenter'
+        else
+          series = 'side-om-side'
+        end
+        test_path_endpoint(series,value)
+      elsif elem.eql?'playerlive'
+        puts "playerLive"
+        if @medium.eql?'super'
+          test_path_endpoint('nrksuper',value)
+        else
+          test_path_endpoint('nrk1',value)
+        end
+      elsif elem.eql?'details'
+        puts "by details"
+        if @medium.eql?'super'
+          test_path_endpoint('MSUB15500415',value)
+        end
+      elsif elem.eql?'series'
+        puts value
+
+      elsif elem.eql?'seriesLatestEpisode'
+        puts value
+      elsif elem.eql?'season'
+        puts value
+      elsif elem.eql?'seasonByEpisode'
+        puts value
+      elsif elem.eql?'live'
+        puts value
+      elsif elem.eql?'livebuffer'
+        puts value
+      elsif elem.eql?'epg'
+        puts value
+      elsif elem.eql?'superepg'
+      end
+    end
+  end
+
+  def test_path_endpoint(tv_channel,path)
+    path = path.sub!(path.split('/')[-1],"") + tv_channel
+    puts "path to be tested #{path}"
+    xml_validation(path)
+  end
+
 
 end
