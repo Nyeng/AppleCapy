@@ -1,22 +1,24 @@
 require 'nokogiri'
 require 'open-uri'
 require 'image_size'
-
+require 'yaml'
 
 class AppleTvBase
 
   def initialize(medium)
+    config = YAML.load_file("config/stage.yml")
+    environment = config["urls"]["apple_tv"]
+
+    puts "taken from config #{environment}"
     if medium.eql?'atv'
       @medium = medium
       Capybara.configure do |config|
         puts "Found it"
         config.run_server = false
-        config.app_host   = 'https://atvstage.nrk.no'
-        @base_url = 'https://atvstage.nrk.no'
+        config.app_host   = environment
+        @base_url = environment
         #Capybara.javascript_driver = :poltergeist
       end
-     #visit '/'
-     # sleep 10
     end
   end
 
@@ -104,5 +106,25 @@ class AppleTvBase
     puts "This is the list you've created with prog ids: "
     puts text_to_write_to_file
   end
+
+  def get_paths
+    url = @base_url + "/paths"
+    #@driver.get url
+    doc = JSON.parse(open(url).read)
+  end
+
+  def check_non_buildable_paths
+    doc = get_paths
+    doc.each do|elem,value|
+      if ['live','superepg'].include? elem
+        puts elem,value
+        xml_validation(value)
+      elsif elem.eql?'epoch'
+        #TODO: what to check on this element?
+        puts "validate epoch"
+      end
+    end
+  end
+
 
 end
