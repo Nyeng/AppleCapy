@@ -23,7 +23,7 @@ When(/^I go to the start endpoints for Apple TV Super$/) do
 end
 
 Then(/^all programs should be available$/) do
-
+  #
 end
 
 
