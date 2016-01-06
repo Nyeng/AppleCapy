@@ -25,7 +25,6 @@ class AppleTvBase
         config.app_host = environment
         @base_url = environment
       end
-
     end
   end
 
