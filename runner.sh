@@ -4,3 +4,5 @@ HOST=$(hostname)
 echo "-----------------------------------------------------"
 echo "Date: $TODAY                     Host:$HOST"
 echo "-----------------------------------------------------"
+#Run features
+"cucumber"
