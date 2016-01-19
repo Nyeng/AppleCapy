@@ -6,7 +6,12 @@ require 'yaml'
 class AppleTvBase
 
   def initialize(medium)
-    config = YAML.load_file("config/stage.yml")
+    environment = ENV['Environment'].downcase
+    if !ENV['Environment'].nil?
+      config = YAML.load_file("config/#{environment}.yml")
+    else ENV['Environment'].eql?'test'
+      config = YAML.load_file("config/stage.yml")
+    end
 
     if medium.eql?'atv'
       environment = config["urls"]["apple_tv"]

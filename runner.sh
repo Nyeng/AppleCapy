@@ -9,6 +9,7 @@ HOST=$(hostname)
 echo "-----------------------------------------------------"
 echo "Date: $TODAY                     Host:$HOST"
 echo "-----------------------------------------------------"
+#Change into your directory
 cd /home/n07028/AppleCapy/features_appletv/
 echo "You're currently in directory"
 pwd
