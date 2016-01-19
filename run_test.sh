@@ -1,5 +1,4 @@
 #!/bin/bash
-
 #set
 #set -x
 TODAY=$(date)
