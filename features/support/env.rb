@@ -11,4 +11,4 @@ case ENV['Environment']
   else puts "Running in default environment"
 end
 
-Capybara.app = TestApp
+#Capybara.app = TestApp
