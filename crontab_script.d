@@ -22,5 +22,5 @@ MAILTO=vegard.nyeng@gmail.com
 # 
 # m h  dom mon dow   command
 
-#*/2 * * * * /home/n07028/AppleCapy/features_appletv/./run_test.sh test  > /home/n07028/crontablogs/crontablogs.log 2>&1
+#*/2 * * * * /home/n07028/AppleCapy/features_appletv/./run_test.sh test  > /home/n07028/crontablogs/crontablogs.log 2>&1pers
 
